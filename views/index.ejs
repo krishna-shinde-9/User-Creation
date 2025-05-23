@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Form</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: #00ffe0;
+      text-shadow: 0 0 10px #00ffe0;
+      margin-bottom: 30px;
+    }
+
+    a {
+      align-self: flex-start;
+      margin-bottom: 20px;
+      color: #00ffe0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    form {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px 40px;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #b0eaff;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="password"],
+    input[type="url"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    input::placeholder {
+      color: #ccc;
+    }
+
+    input[type="submit"] {
+      background-color: #00ffe0;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      box-shadow: 0 0 10px #00ffe0;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #00ccb0;
+      box-shadow: 0 0 15px #00ccb0;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="/user">← View Users</a>
+
+  <h2>User Registration Form</h2>
+
+  <form action="/createUser" method="post">
+    <!-- User ID Field -->
+    <label for="id">User ID:</label>
+    <input type="number" id="id" name="userId" required>
+
+    <!-- Name Field -->
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="fullName" required>
+
+    <!-- Password Field -->
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="userPassword" required>
+
+    <!-- Image URL Field -->
+    <label for="imageUrl">Profile Image URL:</label>
+    <input type="url" id="imageUrl" name="imageUrl" placeholder="https://example.com/image.jpg">
+
+    <!-- Submit Button -->
+    <input type="submit" value="Submit">
+  </form>
+
+</body>
+</html>

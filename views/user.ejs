@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Created Users</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      margin: 0;
+      padding: 20px;
+      color: #fff;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      color: #00ffe0;
+      text-shadow: 0 0 10px #00ffe0;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .user-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 20px;
+      width: 260px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .user-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    }
+
+    .user-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #00ffe0;
+      margin-bottom: 15px;
+    }
+
+    .user-card h2 {
+      margin: 10px 0;
+      font-size: 20px;
+      color: #ffffff;
+    }
+
+    .user-card p {
+      margin: 5px 0;
+      color: #b0eaff;
+    }
+
+    .user-actions {
+      margin-top: 15px;
+    }
+
+    .user-actions a {
+      margin: 5px;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .user-actions a:hover {
+      opacity: 0.9;
+    }
+
+    .user-actions a.edit {
+      background-color: #00ffe0;
+      color: #000;
+      box-shadow: 0 0 10px #00ffe0;
+    }
+
+    .user-actions a.delete {
+      background-color: #ff4c4c;
+      color: #fff;
+      box-shadow: 0 0 10px #ff4c4c;
+    }
+
+    a[href="/"] {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+      color: #00ffe0;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a[href="/"]:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Created Users</h1>
+
+  <div class="card-container">
+    <% if (userAll.length > 0) { %>
+      <% userAll.forEach(user => { %>
+        <div class="user-card">
+          <% if (user.imageUrl) { %>
+            <img src="<%= user.imageUrl %>" alt="Profile image of <%= user.name %>">
+          <% } else { %>
+            <img src="https://via.placeholder.com/100?text=No+Image" alt="No image available">
+          <% } %>
+          <h2>User ID: <%= user.id %></h2>
+          <p>Name: <%= user.name %></p>
+
+          <div class="user-actions">
+            <a href="/edit/<%= user.id %>" class="edit">Edit</a>
+            <a href="/delete/<%= user.id %>" class="delete">Delete</a>
+          </div>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p style="text-align:center; color:#ccc;">No user added yet</p>
+    <% } %>
+  </div>
+
+  <a href="/">Go to Home</a>
+</body>
+</html>
